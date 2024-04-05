@@ -124,6 +124,7 @@ C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\Employe
 C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\EmployeeMS\EmployeeMS\obj\Debug\net8.0\EmployeeMS.AssemblyInfoInputs.cache
 C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\EmployeeMS\EmployeeMS\obj\Debug\net8.0\EmployeeMS.AssemblyInfo.cs
 C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\EmployeeMS\EmployeeMS\obj\Debug\net8.0\EmployeeMS.csproj.CoreCompileInputs.cache
+C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\EmployeeMS\EmployeeMS\obj\Debug\net8.0\EmployeeMS.sourcelink.json
 C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\EmployeeMS\EmployeeMS\obj\Debug\net8.0\EmployeeMS.csproj.CopyComplete
 C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\EmployeeMS\EmployeeMS\obj\Debug\net8.0\EmployeeMS.dll
 C:\Users\Prashant Shrestha\Documents\Projects\MyPersonal\Clean Artecture\EmployeeMS\EmployeeMS\obj\Debug\net8.0\refint\EmployeeMS.dll
