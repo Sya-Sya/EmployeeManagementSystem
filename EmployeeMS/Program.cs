@@ -66,12 +66,12 @@ namespace EmployeeManagementConsole
         static void EmployeeOpt(EMSContext context) //Space and Time Complexity O(1)
         {
             int choice;
-            Console.WriteLine("Employee Management");
-            Console.WriteLine("1. Add Employee");
-            Console.WriteLine("2. View Employees");
-            Console.WriteLine("3. Update Employee");
-            Console.WriteLine("4. Delete Employee");
-            Console.WriteLine("5. Exit");
+            //Console.WriteLine("Employee Management");
+            //Console.WriteLine("1. Add Employee");
+            //Console.WriteLine("2. View Employees");
+            //Console.WriteLine("3. Update Employee");
+            //Console.WriteLine("4. Delete Employee");
+            //Console.WriteLine("5. Exit");
             try
             {
                 Console.Write("Enter UserTyp: ");
@@ -85,7 +85,13 @@ namespace EmployeeManagementConsole
                     Console.WriteLine("2. View Employees");
                     Console.WriteLine("3. Update Employee");
                     Console.WriteLine("4. Delete Employee");
-                    Console.WriteLine("5. Exit");
+                    Console.WriteLine("*********************");
+                    Console.WriteLine("Reports");
+                    Console.WriteLine("5. Attendance Report");
+                    Console.WriteLine("6. Performance Report");
+                    Console.WriteLine("7. Salary Report");
+                    Console.WriteLine("*********************");
+                    Console.WriteLine("8. Exit");
                     Console.Write("Enter your choice: ");
                     choice = int.Parse(Console.ReadLine());
                     switch (choice)
@@ -100,9 +106,18 @@ namespace EmployeeManagementConsole
                             UpdateEmployee(employeeRepository);
                             break;
                         case 4:
-                            DeleteEmployee(employeeRepository);
+                            AttendanceReport();
                             break;
                         case 5:
+                            GeneratePerformanceReport();
+                            break;
+                        case 6:
+                            GenerateSalaryReport();
+                            break;
+                        case 7:
+                            DeleteEmployee(employeeRepository);
+                            break;
+                        case 8:
                             return;
                         default:
                             Console.WriteLine("--------------------------");
@@ -363,39 +378,99 @@ namespace EmployeeManagementConsole
         #region Position
         static void PositionOpt(EMSContext context) //Space and Time Complexity O(1)
         {
-            Console.WriteLine("Employee Management");
+            int choice;
+            Console.WriteLine("Position Management");
             Console.WriteLine("1. Add Position");
             Console.WriteLine("2. View Position");
             Console.WriteLine("3. Update Position");
             Console.WriteLine("4. Delete Position");
             Console.WriteLine("5. Exit");
-            Console.Write("Enter your choice: ");
             try
             {
-                int choice = int.Parse(Console.ReadLine());
-                var positionRepository = new PositionInt(context);
+                Console.Write("Enter UserTyp: ");
+                string User = Console.ReadLine();
 
-                switch (choice)
+                var positionRepository = new PositionInt(context);
+                if (User.ToLower() == "admin")
                 {
-                    case 1:
-                        AddPosition(positionRepository);
-                        break;
-                    case 2:
-                        ViewPositions(positionRepository);
-                        break;
-                    case 3:
-                        UpdatePosition(positionRepository);
-                        break;
-                    case 4:
-                        DeletePosition(positionRepository);
-                        break;
-                    case 5:
-                        return;
-                    default:
-                        Console.WriteLine("--------------------------");
-                        Console.WriteLine("Please select from above");
-                        Console.WriteLine("--------------------------");
-                        return;
+                    Console.WriteLine("1. Add Position");
+                    Console.WriteLine("2. View Position");
+                    Console.WriteLine("3. Update Position");
+                    Console.WriteLine("4. Delete Position");
+                    Console.WriteLine("5. Exit");
+                    choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            AddPosition(positionRepository);
+                            break;
+                        case 2:
+                            ViewPositions(positionRepository);
+                            break;
+                        case 3:
+                            UpdatePosition(positionRepository);
+                            break;
+                        case 4:
+                            DeletePosition(positionRepository);
+                            break;
+                        case 5:
+                            return;
+                        default:
+                            Console.WriteLine("--------------------------");
+                            Console.WriteLine("Please select from above");
+                            Console.WriteLine("--------------------------");
+                            return;
+                    }
+                }
+                else if (User.ToLower() == "manager")
+                {
+                    Console.WriteLine("1. Add Position");
+                    Console.WriteLine("2. View Position");
+                    Console.WriteLine("3. Update Position");
+                    Console.WriteLine("4. Exit");
+                    Console.Write("Enter your choice: ");
+
+                    choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            AddPosition(positionRepository);
+                            break;
+                        case 2:
+                            ViewPositions(positionRepository);
+                            break;
+                        case 3:
+                            UpdatePosition(positionRepository);
+                            break;
+                        case 4:
+                            return;
+                        default:
+                            Console.WriteLine("--------------------------");
+                            Console.WriteLine("Please select from above");
+                            Console.WriteLine("--------------------------");
+                            return;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("1. View Position");
+                    Console.WriteLine("2. Exit");
+                    Console.Write("Enter your choice: ");
+
+                    choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            ViewPositions(positionRepository);
+                            break;
+                        case 2:
+                            return;
+                        default:
+                            Console.WriteLine("--------------------------");
+                            Console.WriteLine("Please select from above");
+                            Console.WriteLine("--------------------------");
+                            return;
+                    }
                 }
             }
             catch (Exception exe)
@@ -557,39 +632,100 @@ namespace EmployeeManagementConsole
         #region Departments
         static void DepartmentOpt(EMSContext context) //Space and Time Complexity O(1)
         {
+            int choice;
             Console.WriteLine("Employee Management");
             Console.WriteLine("1. Add Department");
             Console.WriteLine("2. View Department");
             Console.WriteLine("3. Update Department");
             Console.WriteLine("4. Delete Department");
             Console.WriteLine("5. Exit");
-            Console.Write("Enter your choice: ");
             try
             {
-                int choice = int.Parse(Console.ReadLine());
-                var DepartmentRepository = new DepartmentInt(context);
+                Console.Write("Enter UserTyp: ");
+                string User = Console.ReadLine();
 
-                switch (choice)
+                var DepartmentRepository = new DepartmentInt(context);
+                if (User.ToLower() == "admin")
                 {
-                    case 1:
-                        AddDepartment(DepartmentRepository);
-                        break;
-                    case 2:
-                        ViewDepartment(DepartmentRepository);
-                        break;
-                    case 3:
-                        UpdateDepartment(DepartmentRepository);
-                        break;
-                    case 4:
-                        DeleteDepartment(DepartmentRepository);
-                        break;
-                    case 5:
-                        return;
-                    default:
-                        Console.WriteLine("--------------------------");
-                        Console.WriteLine("Please select from above");
-                        Console.WriteLine("--------------------------");
-                        return;
+                    Console.WriteLine("Employee Management");
+                    Console.WriteLine("1. Add Department");
+                    Console.WriteLine("2. View Department");
+                    Console.WriteLine("3. Update Department");
+                    Console.WriteLine("4. Delete Department");
+                    Console.WriteLine("5. Exit");
+                    choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            AddDepartment(DepartmentRepository);
+                            break;
+                        case 2:
+                            ViewDepartment(DepartmentRepository);
+                            break;
+                        case 3:
+                            UpdateDepartment(DepartmentRepository);
+                            break;
+                        case 4:
+                            DeleteDepartment(DepartmentRepository);
+                            break;
+                        case 5:
+                            return;
+                        default:
+                            Console.WriteLine("--------------------------");
+                            Console.WriteLine("Please select from above");
+                            Console.WriteLine("--------------------------");
+                            return;
+                    }
+                }
+                else if (User.ToLower() == "manager")
+                {
+                    Console.WriteLine("1. Add Department");
+                    Console.WriteLine("2. View Department");
+                    Console.WriteLine("3. Update Department");
+                    Console.WriteLine("4. Exit");
+                    Console.Write("Enter your choice: ");
+
+                    choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            AddDepartment(DepartmentRepository);
+                            break;
+                        case 2:
+                            ViewDepartment(DepartmentRepository);
+                            break;
+                        case 3:
+                            UpdateDepartment(DepartmentRepository);
+                            break;
+                        case 4:
+                            return;
+                        default:
+                            Console.WriteLine("--------------------------");
+                            Console.WriteLine("Please select from above");
+                            Console.WriteLine("--------------------------");
+                            return;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("1. View Department");
+                    Console.WriteLine("2. Exit");
+                    Console.Write("Enter your choice: ");
+
+                    choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            AddDepartment(DepartmentRepository);
+                            break;
+                        case 2:
+                            return;
+                        default:
+                            Console.WriteLine("--------------------------");
+                            Console.WriteLine("Please select from above");
+                            Console.WriteLine("--------------------------");
+                            return;
+                    }
                 }
             }
             catch (Exception exe)
@@ -604,6 +740,7 @@ namespace EmployeeManagementConsole
                 Log.CloseAndFlush();
             }
         }
+
         static void AddDepartment(IDepartment context) //Time Complexity O(n) and Space Complexity O(1)
         {
             Console.WriteLine("Enter Department Details:");
@@ -741,6 +878,33 @@ namespace EmployeeManagementConsole
             {
                 Log.CloseAndFlush();
             }
+        }
+        #endregion
+
+        #region Report Generation
+        static void AttendanceReport()
+        {
+            Console.WriteLine("Attendance Report:");
+            // Display sample report data
+            Console.WriteLine("EmployeeID | Date       | Hours Worked | Name");
+            Console.WriteLine("1          | 2022-01-01 | 8 | TEST");
+            Console.WriteLine("2          | 2022-01-01 | 7 | TEST");
+        }
+        static void GeneratePerformanceReport()
+        {
+            Console.WriteLine("Performance Report:");
+            // Display sample report data
+            Console.WriteLine("EmployeeID | Date       | Performance Rating | Name");
+            Console.WriteLine("1          | 2022-01-01 | Excellent | TEST");
+            Console.WriteLine("2          | 2022-01-01 | Satisfactory| TEST");
+        }
+        static void GenerateSalaryReport()
+        {
+            Console.WriteLine("Salary Report:");
+            // Display sample report data
+            Console.WriteLine("EmployeeID | Name       | Salary | Name");
+            Console.WriteLine("1          | John Doe   | $5000| TEST");
+            Console.WriteLine("2          | Jane Smith | $4500| TEST");
         }
         #endregion
     }
